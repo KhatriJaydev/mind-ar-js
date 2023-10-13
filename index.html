@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+</head>
+
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./assets/dk/dk.mind; uiLoading:no; uiScanning:no" color-space=" sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <img id="user-icon" src="./assets/icon/usericon.svg" />
+      <img id="web-icon" src="./assets/icon/website.png" />
+      <img id="email-icon" src="./assets/icon/email.png" />
+      <img id="phone-icon" src="./assets/icon/phone.png" />
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-plane position="1 1 0" color="transparent" opacity="0">
+        <a-image position="0 0 0" src="#user-icon" height="0.5" width="0.5" rotation="0 0 0"></a-image>
+        <a-text position="-0.5 -0.5 0" value="Dhruv Khatri" color="black" scale="0.8 0.8 0.8"></a-text>
+        <a-image position="-0.5 -0.8 0" src="#web-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
+        <a-text position="-0.4 -0.8 0" value="www.example.com" color="black" scale="0.4 0.4 0.4"></a-text>
+        <a-image position="-0.5 -1 0" src="#email-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
+        <a-text position="-0.4 -1 0" value="example1@gmail.com" color="black" scale="0.4 0.4 0.4"></a-text>
+        <a-image position="-0.5 -1.2 0" src="#phone-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
+        <a-text position="-0.4 -1.2 0" value="+1 888-321-123" color="black" scale="0.4 0.4 0.4"></a-text>
+      </a-plane>
+    </a-entity>
+  </a-scene>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('Document is ready!');
+    });
+  </script>
+</body>
+
+</html>
