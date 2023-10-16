@@ -9,8 +9,8 @@
   <script>
     const showInfo = () => {
       const webButton = document.querySelector("#web-icon");
-      const emailButton = document.querySelector("#email-button");
-      const phoneButton = document.querySelector("#phone-button");
+      const emailButton = document.querySelector("#email-icon");
+      const phoneButton = document.querySelector("#phone-icon");
 
       setTimeout(() => {
         webButton.setAttribute("visible", true);
@@ -63,13 +63,13 @@
 
           <a-text position="-0.4 -0.8 0" value="www.example.com" color="white" scale="0.4 0.4 0.4"></a-text>
 
-          <a-image visible="false" id="email-button" alpha-test="0.5" position="-0.5 -1 0" src="#email-icon-img"
+          <a-image visible="false" id="email-icon" alpha-test="0.5" position="-0.5 -1 0" src="#email-icon-img"
             height="0.1" width="0.1" rotation="0 0 0"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
           <a-text position="-0.4 -1 0" value="example1@gmail.com" color="white" scale="0.4 0.4 0.4"></a-text>
 
-          <a-image visible="false" id="phone-button" alpha-test="0.5" position="-0.5 -1.2 0" src="#phone-icon-img"
+          <a-image visible="false" id="phone-icon" alpha-test="0.5" position="-0.5 -1.2 0" src="#phone-icon-img"
             height="0.1" width="0.1" rotation="0 0 0"
             animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
