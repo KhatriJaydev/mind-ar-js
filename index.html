@@ -6,7 +6,35 @@
   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 
+  <script>
+    const showInfo = () => {
+      const webButton = document.querySelector("#web-icon");
+      const emailButton = document.querySelector("#email-button");
+      const phoneButton = document.querySelector("#phone-button");
 
+      setTimeout(() => {
+        webButton.setAttribute("visible", true);
+      }, 300);
+      setTimeout(() => {
+        emailButton.setAttribute("visible", true);
+      }, 600);
+      setTimeout(() => {
+        phoneButton.setAttribute("visible", true);
+      }, 900);
+    }
+    AFRAME.registerComponent('mytarget', {
+      init: function () {
+        this.el.addEventListener('targetFound', event => {
+          setTimeout(() => {
+            showInfo();
+          }, 300);
+        });
+        this.el.addEventListener('targetLost', event => {
+          console.log("target found");
+        });
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -14,26 +42,41 @@
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-      <img id="user-icon" src="./assets/icon/img_avatar.png" />
-      <img id="web-icon" src="./assets/icon/yellow-website.png" />
-      <img id="email-icon" src="./assets/icon/email-yellow.png" />
-      <img id="phone-icon" src="./assets/icon/phone-call.png" />
+      <img id="user-icon-img" src="./assets/icon/img_avatar.png" />
+      <img id="web-icon-img" src="./assets/icon/yellow-website.png" />
+      <img id="email-icon-img" src="./assets/icon/email-yellow.png" />
+      <img id="phone-icon-img" src="./assets/icon/phone-call.png" />
     </a-assets>
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity mindar-image-target="targetIndex: 0">
+    <a-entity mytarget mindar-image-target="targetIndex: 0">
       <a-plane position="1 1 0" color="transparent" opacity="0">
         <a-entity position="0 0 0" rotation="0 0 0">
-          <a-circle radius="0.25" material="shader: flat; src: #user-icon"></a-circle>
+          <a-circle radius="0.25" material="shader: flat; src: #user-icon-img"></a-circle>
         </a-entity>
-        <a-text position="-0.5 -0.5 0" value="Dhruv Khatri" color="white" scale="0.8 0.8 0.8"></a-text>
-        <a-image position="-0.5 -0.8 0" src="#web-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
-        <a-text position="-0.4 -0.8 0" value="www.example.com" color="white" scale="0.4 0.4 0.4"></a-text>
-        <a-image position="-0.5 -1 0" src="#email-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
-        <a-text position="-0.4 -1 0" value="example1@gmail.com" color="white" scale="0.4 0.4 0.4"></a-text>
-        <a-image position="-0.5 -1.2 0" src="#phone-icon" height="0.1" width="0.1" rotation="0 0 0"></a-image>
-        <a-text position="-0.4 -1.2 0" value="+1 888-321-123" color="white" scale="0.4 0.4 0.4"></a-text>
+        <a-text position="-0.5 -0.5 0" value="Dhruv Khatri" color="white" scale-img="0.8 0.8 0.8"></a-text>
+        <a-entity>
+          <a-image visible="false" id="web-icon" src="#web-icon-img" alpha-test="0.5" position="-0.5 -0.8 0"
+            height="0.1" width="0.1"
+            animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+          <a-text position="-0.4 -0.8 0" value="www.example.com" color="white" scale="0.4 0.4 0.4"></a-text>
+
+          <a-image visible="false" id="email-button" alpha-test="0.5" position="-0.5 -1 0" src="#email-icon-img"
+            height="0.1" width="0.1" rotation="0 0 0"
+            animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+          <a-text position="-0.4 -1 0" value="example1@gmail.com" color="white" scale="0.4 0.4 0.4"></a-text>
+
+          <a-image visible="false" id="phone-button" alpha-test="0.5" position="-0.5 -1.2 0" src="#phone-icon-img"
+            height="0.1" width="0.1" rotation="0 0 0"
+            animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+          <a-text position="-0.4 -1.2 0" value="+1 888-321-123" color="white" scale="0.4 0.4 0.4"></a-text>
+        </a-entity>
+
+
       </a-plane>
     </a-entity>
   </a-scene>
