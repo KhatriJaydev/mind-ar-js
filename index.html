@@ -11,19 +11,28 @@
       const webButton = document.querySelector("#web-icon");
       const emailButton = document.querySelector("#email-icon");
       const phoneButton = document.querySelector("#phone-icon");
-      const portfolio = document.querySelector("#portfolio-panel");
+      const textTitle = document.querySelector("#text-title");
+      const webLink = document.querySelector("#web-link");
+      const emailAddress = document.querySelector("#email-address");
+      const phNumber = document.querySelector("#ph-number");
 
       setTimeout(() => {
-        portfolio.setAttribute("visible", true);
+        textTitle.setAttribute("visible", true);
       }, 300);
+
       setTimeout(() => {
         webButton.setAttribute("visible", true);
+        webLink.setAttribute("visible", true);
       }, 600);
+
       setTimeout(() => {
         emailButton.setAttribute("visible", true);
+        emailAddress.setAttribute("visible", true);
       }, 900);
+
       setTimeout(() => {
         phoneButton.setAttribute("visible", true);
+        phNumber.setAttribute("visible", true);
       }, 1200);
     }
 
@@ -33,9 +42,6 @@
           setTimeout(() => {
             showInfo();
           }, 300);
-        });
-        this.el.addEventListener('targetLost', event => {
-          console.log("target found");
         });
       }
     });
@@ -60,27 +66,29 @@
         <a-entity position="0 0 0" rotation="0 0 0">
           <a-circle radius="0.25" material="shader: flat; src: #user-icon-img"></a-circle>
         </a-entity>
-        <a-text id="portfolio-panel" visible="false" position="-0.5 -0.5 0" value="Dhruv Khatri" color="white"
-          scale="0 0 0"
+        <a-text id="text-title" visible="false" position="-0.5 -0.5 0" value="Dhruv Khatri" color="white" scale="0 0 0"
           animation="property: scale; to: 0.8 0.8 0.8; dur: 1000; easing: easeInOutQuad; loop: 3; dir: alternate"></a-text>
         <a-entity>
           <a-image visible="false" id="web-icon" src="#web-icon-img" alpha-test="0.5" position="-0.5 -0.8 0"
             height="0.1" width="0.1"
             animation="property: scale; to: 1.9 1.9 1.9; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
-          <a-text position="-0.3 -0.8 0" value="www.example.com" color="white" scale="0.4 0.4 0.4"></a-text>
+          <a-text visible="false" id="web-link" position="-0.3 -0.8 0" value="www.example.com" color="white"
+            scale="0.4 0.4 0.4"></a-text>
 
           <a-image visible="false" id="email-icon" alpha-test="0.5" position="-0.5 -1.05 0" src="#email-icon-img"
             height="0.1" width="0.1" rotation="0 0 0"
             animation="property: scale; to: 1.9 1.9 1.9; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
-          <a-text position="-0.3 -1.05 0" value="example1@gmail.com" color="white" scale="0.4 0.4 0.4"></a-text>
+          <a-text visible="false" position="-0.3 -1.05 0" id="email-address" value="example1@gmail.com" color="white"
+            scale="0.4 0.4 0.4"></a-text>
 
           <a-image visible="false" id="phone-icon" alpha-test="0.5" position="-0.5 -1.3 0" src="#phone-icon-img"
             height="0.1" width="0.1" rotation="0 0 0"
             animation="property: scale; to: 1.9 1.9 1.9; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
-          <a-text position="-0.3 -1.3 0" value="+1 888-321-123" color="white" scale="0.4 0.4 0.4"></a-text>
+          <a-text visible="false" position="-0.3 -1.3 0" id="ph-number" value="+1 888-321-123" color="white"
+            scale="0.4 0.4 0.4"></a-text>
         </a-entity>
 
 
