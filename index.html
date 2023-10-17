@@ -57,11 +57,18 @@
       <img id="web-icon-img" src="./assets/icon/yellow-website.png" />
       <img id="email-icon-img" src="./assets/icon/email-yellow.png" />
       <img id="phone-icon-img" src="./assets/icon/phone-call.png" />
+      <img id="dk-image" src="./assets/dk/D-front-1.png">
     </a-assets>
 
+    
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
+    
     <a-entity mytarget mindar-image-target="targetIndex: 0">
+      <a-plane
+      scale="1.1 1.9 1"
+      material="src: #dk-image; transparent: true; opacity: 1;"
+      position="0 0 -0.1"
+      ></a-plane>
       <a-plane position="1 1 0" color="transparent" opacity="0">
         <a-entity position="0 0 0" rotation="0 0 0">
           <a-circle radius="0.25" material="shader: flat; src: #user-icon-img"></a-circle>
