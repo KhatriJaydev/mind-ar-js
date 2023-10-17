@@ -8,9 +8,9 @@
 
   <script>
     const showInfo = () => {
-      const webButton = document.querySelector("#web-icon");
-      const emailButton = document.querySelector("#email-icon");
-      const phoneButton = document.querySelector("#phone-icon");
+      const webIcon = document.querySelector("#web-icon");
+      const emailIcon = document.querySelector("#email-icon");
+      const phoneIcon = document.querySelector("#phone-icon");
       const textTitle = document.querySelector("#text-title");
       const webLink = document.querySelector("#web-link");
       const emailAddress = document.querySelector("#email-address");
@@ -21,19 +21,21 @@
       }, 300);
 
       setTimeout(() => {
-        webButton.setAttribute("visible", true);
+        webIcon.setAttribute("visible", true);
         webLink.setAttribute("visible", true);
       }, 600);
 
       setTimeout(() => {
-        emailButton.setAttribute("visible", true);
+        emailIcon.setAttribute("visible", true);
         emailAddress.setAttribute("visible", true);
       }, 900);
 
       setTimeout(() => {
-        phoneButton.setAttribute("visible", true);
+        phoneIcon.setAttribute("visible", true);
         phNumber.setAttribute("visible", true);
       }, 1200);
+
+      
     }
 
     AFRAME.registerComponent('mytarget', {
@@ -98,6 +100,22 @@
 
 
       </a-plane>
+
+      <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.42 -0.5 0"
+          height="0.15" width="0.15"
+          animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+        <a-image visible=false id="web-button" class="clickable" src="#icon-web" alpha-test="0.5"
+          position="-0.14 -0.5 0" height="0.15" width="0.15"
+          animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+        <a-image visible=false id="email-button" class="clickable" src="#icon-email" position="0.14 -0.5 0"
+          height="0.15" width="0.15"
+          animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
+
+        <a-image visible=false id="location-button" class="clickable" src="#icon-location" position="0.42 -0.5 0"
+          height="0.15" width="0.15"
+          animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
     </a-entity>
   </a-scene>
 </body>
